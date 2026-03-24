@@ -1,0 +1,26 @@
+use_default_settings: true
+server:
+  port: 8080
+  bind_address: "0.0.0.0"
+  secret_key: "test"
+  base_url: http://192.168.1.61:8081/
+  image_proxy: false
+  http_protocol_version: "1.0"
+
+search:
+  safe_search: 0
+  autocomplete: "google"
+  default_lang: "en"
+  ban_time_on_fail: 5
+  max_ban_time_on_fail: 120
+  formats:
+    - html
+    - json
+
+
+ui:
+  static_path: ""
+  templates_path: ""
+  default_theme: simple
+  default_locale: en
+  results_on_new_tab: false

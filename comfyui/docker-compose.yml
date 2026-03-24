@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  comfyui:
+    image: localhost:5000/comfyui:latest
+    container_name: comfyui
+    ports:
+      - "8188:8188"
+    volumes:
+      - /var/lib/comfyui/models:/app/ComfyUI/models
+      - /var/lib/comfyui/custom_nodes:/app/ComfyUI/custom_nodes
+      - /var/lib/comfyui/output:/app/ComfyUI/output
+      - /var/lib/comfyui/input:/app/ComfyUI/input
+    ulimits:
+      stack: 67108864      # 64MB stack size (in bytes)
+      memlock: -1          # Unlimited locked memory for faster GPU-to-CPU transfers
+      nofile:
+        soft: 65536        # Higher limit for open files (models/nodes)
+        hard: 65536
+    ipc: host
+    command: bash -c "cd /app/ComfyUI && python main.py --listen 0.0.0.0 --port 8188"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities:
+                - gpu
+                - compute
+                - utility
+    restart: unless-stopped

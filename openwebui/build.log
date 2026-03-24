@@ -1,0 +1,24 @@
+make[1]: Entering directory '/home/shil/git/vllm_modified'
+docker build --progress=plain -t localhost:5000/openwebui:latest -f openwebui/Dockerfile  .
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 98B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for ghcr.io/open-webui/open-webui:ollama
+#2 DONE 0.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/1] FROM ghcr.io/open-webui/open-webui:ollama@sha256:d6e7e2dd06800229ddefdcfde55021d157a1689a6ee2ef16c42b083936ea388a
+#4 CACHED
+
+#5 exporting to image
+#5 exporting layers done
+#5 writing image sha256:d17ceaa84012cc73596d1192c9f1ca293684d5f44f2b584b80861a8c1a29d90b done
+#5 naming to localhost:5000/openwebui:latest done
+#5 DONE 0.0s
+make[1]: Leaving directory '/home/shil/git/vllm_modified'
